@@ -29,13 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,22 +37,77 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            const Text('カウント値'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+
+//colume:縦分割　Row:横分割　Container:デザイン
+
+      body: Column(
+        children: [
+          //上半分
+          Expanded(
+            flex: 2,
+            child: Row(
+              children: [
+                //上半分を横に２分割
+                Expanded(flex: 2, child: Text("count: $_counter")),
+                Expanded(
+                  child: Column(
+                    children: [
+                      //上右半分を縦に3分割
+                      //カウント+１
+                      Expanded(
+                        child: FittedBox(
+                          child: ElevatedButton(
+                            onPressed:(){
+                              setState(() {
+                                _counter++;
+                              });
+                            } ,
+                            child:Text("+1"),
+                          )
+                        ),
+                      ),
+
+                      //カウント－１
+                      Expanded(
+                        child: FittedBox(
+                          child: ElevatedButton(
+                            onPressed:(){
+                              setState(() {
+                                _counter--;
+                              });
+                            } ,
+                            child:Text("-1"),
+                          )
+                        ),
+                      ),
+
+                      //カウントリセット
+                      Expanded(
+                        child: FittedBox(
+                          child: ElevatedButton(
+                            onPressed:(){
+                              setState(() {
+                                _counter = 0;
+                              });
+                            } ,
+                            child:Text("reset"),
+                          )
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+          ),
+
+          //下部分
+          Expanded(
+            child: Placeholder()
+          ),
+
+        ],
       ),
     );
   }
