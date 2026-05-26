@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "377001966343",
+    "project_id": "webtakeru",
+    "storage_bucket": "webtakeru.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377001966343:android:10e4b6903fb7026c40e3a2",
+        "android_client_info": {
+          "package_name": "com.example.my1stapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ58m0z4Y6n7j3egJH4v1QLlriWe2xi28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
